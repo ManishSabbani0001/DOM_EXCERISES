@@ -9,11 +9,11 @@
   <body>
     <input type="text" id="myText" /><br /><br />
 
-    <input type="button" class="btn" value="Display Text" onclick="testFun()" />
+    <input type="button" class="btn" value="Display Text" onclick="testFunc()" />
     <p id="para"></p>
 
     <script>
-      function testFun() {
+      function testFunc() {
         var text = document.getElementById("myText").value;
         document.getElementById("para").innerHTML = text;
       }
