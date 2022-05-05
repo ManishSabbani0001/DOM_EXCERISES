@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Event Display List And Clear Input Field</title>
+  </head>
+  <body>
+    <input type="text" id="myText" /><br /><br />
+
+    <input type="button" value="Display Text" onclick="testFunc()" />
+    <ul id="unlist"></ul>
+    <script>
+      var unOrderList = document.getElementById("unlist");
+      function testFunc() {
+        var input = document.getElementById("myText").value;
+        const listItems = document.createElement("li");
+        listItems.innerHTML = input;
+        unOrderList.appendChild(listItems);
+        var input = document.getElementById("myText").value = "";
+      }
+    </script>
+  </body>
+</html>
