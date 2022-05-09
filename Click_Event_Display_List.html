@@ -7,18 +7,41 @@
     <title>Click Event Display List And Clear Input Field</title>
   </head>
   <body>
-    <input type="text" id="myText" /><br /><br />
+    <input type="text" id="myText" onkeydown="search(event)" /><br /><br />
 
     <input type="button" value="Display Text" onclick="testFunc()" />
-    <ul id="unlist"></ul>
+    <ol id="ol" onclick="removeFunc(event)"></ol>
     <script>
-      var unOrderList = document.getElementById("unlist");
+      var orderList = document.getElementById("ol");
       function testFunc() {
         var input = document.getElementById("myText").value;
-        const listItems = document.createElement("li");
+        let listItems = document.createElement("li");
         listItems.innerHTML = input;
-        unOrderList.appendChild(listItems);
-        var input = document.getElementById("myText").value = "";
+        totalList = orderList.appendChild(listItems);
+        if (input == "") {
+          window.prompt("enter atleast one letter or number or symbol");
+          totalList = orderList.removeChild(listItems);
+        }
+        input = document.getElementById("myText").value = "";
+      }
+
+      function removeFunc(e) {
+        var element = e.target;
+        element.remove();
+      }
+
+      function search(e) {
+        var input = document.getElementById("myText").value;
+        let listItems = document.createElement("li");
+        if (e.key === "Enter") {
+          listItems.innerHTML = input;
+          totalList = orderList.appendChild(listItems);
+          if (input == "") {
+            window.prompt("enter atleast one letter or number or symbol");
+            totalList = orderList.removeChild(listItems);
+          }
+          input = document.getElementById("myText").value = "";
+        }
       }
     </script>
   </body>
