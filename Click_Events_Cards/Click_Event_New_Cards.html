@@ -6,135 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Click_Event_New_Cards</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./Assets/Styles/Event_Click.css">
+    <script href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script> 
   </head>
   <body
-    background="./PHOTOS/avengers-age-of-ultron-4k-amazing-hd-wallpaper-preview.jpg"
-    style="background-repeat: no-repeat; background-size: 100%"
+    background="./Assets/PHOTOS/avengers-age-of-ultron-4k-amazing-hd-wallpaper-preview.jpg"
   >
-
-    <div id = "container" class="col-4 bg-light border border-white rounded text-white"
-    style="width: 28%; font-size: 22px;">
-    <div id = "List" class="ms-4 mb-3 mt-4" style="color: black;" >
+    <div id = "container" class="col-4 bg-light border border-white rounded text-white">
+    <div id = "List" class="ms-4 mb-3 mt-4">
       List
       </div>
-      <hr style="color: black">
-      <div class="pb-3">
+      <hr>
+      <div class="pb-3" id = 'divB'>
       <button
         class="btn btn-primary"
-      style="width: 88%; margin-left: 17px;"
       id = "cardBtn" onclick="nextCard()">
         Add New Card
       </button>
       </div>
       <div id = "mainDiv"></div>
+      <div id = 'subDiv'></div>
     </div>
     </div>
-    
-    <script>
-    function nextCard() {
-      var cardBtns = document.querySelector('#cardBtn');
-      var mainDiv = document.querySelector('#mainDiv');
-     if(cardBtns.style.display = "block") {
-      cardBtns.style.display = "none"; 
-       p = document.createElement('p');
-       p.style.marginTop = "-34.6px";
-       p.style.height = "6.5rem";
-       p.style.width = "23.9rem";
-       p.style.backgroundColor = "white";
-       p.style.borderRadius = "8px";
-       p1 = document.createElement('p1');
-       p1.innerHTML = "<input type = 'textarea'   id = 'input' onkeydown = 'textArea(event)' onclick = 'textFocus()' placeholder = 'Enter Card Name...' style = 'width: 23.8rem; margin-top:2px; border-radius: 4px; outline:none; height: 2rem; font-size: 18px; border:	2px solid rgb(209, 224, 224)'>"
-       var divBtns = document.createElement('div');
-       divBtns.innerHTML = "<div class = 'btn btn-primary' id='addBtn' onclick = 'smallCards()'>Add Card</div> <div class = 'btn btn-danger' onclick='homeFunc()'>X</div>"
-       divBtns.style.marginTop = "25px";
-       divBtns.style.marginLeft = "20px";
-       divBtns.style.marginRight = "20px";
-       divBtns.style.display = "flex";
-       divBtns.style.justifyContent = "space-between";
-       p.appendChild(p1);
-       p.appendChild(divBtns);
-       mainDiv.appendChild(p);  
-        } 
-    }
-
-    var mainDiv = document.querySelector('#mainDiv');
-    var cardBtns = document.querySelector('#cardBtn');
-     function homeFunc() {
-     if(mainDiv.style.display = 'block') {
-      mainDiv.style.display = 'none';
-      cardBtns.style.display = 'block';
-     }
-    }
-
-    function textFocus() {
-      document.querySelector('#input').style.boxShadow = '2px 2px 10px 1px blue';
-    }
-
-    function textArea(e) {
-    var inputData = document.querySelector('#input').value;
-   if(e.key === 'Enter') {
-      var myPara = document.createElement('p');
-      myPara.className = 'col-4 bg-light border border-black rounded text-white';
-      myPara.style.height = '4rem';
-      myPara.style.width = '100%'; 
-      myPara.style.fontSize = '14px';
-      myPara.style.marginBottom = '1px';
-      myPara.style.display = 'flex';
-      myPara.style.justifyContent = 'space-between';
-      var paraText = document.createElement('p');
-      paraText.innerHTML = inputData;
-      paraText.style.marginTop = '5px';
-      paraText.style.marginLeft = '25px';
-      paraText.style.fontSize = '16px';
-      paraText.style.color = 'black';
-      myPara.appendChild(paraText);
-      var buttonPara = document.createElement('p');
-      buttonPara.innerHTML = '<p class = "btn btn-danger"  onclick = "removeCards(this)">X</p>'
-      buttonPara.style.marginRight = '20px';
-      buttonPara.style.marginTop = '13px';
-      myPara.appendChild(buttonPara);
-    }
-    document.querySelector('#mainDiv').appendChild(myPara);
-    var inputData = document.querySelector('#input').value = "";
-   }
-    
-  
-  function smallCards() {
-    var inputData = document.querySelector('#input').value; 
-    if(inputData=="") {
-      window.prompt('enter atleast number or letter');
-    }else {
-      var myPara = document.createElement('p');
-      myPara.className = 'col-4 bg-light border border-black rounded text-white';
-      myPara.style.height = '4rem';
-      myPara.style.width = '100%'; 
-      myPara.style.fontSize = '14px';
-      myPara.style.marginBottom = '1px';
-      myPara.style.display = 'flex';
-      myPara.style.justifyContent = 'space-between';
-      var paraText = document.createElement('p');
-      paraText.innerHTML = inputData;
-      paraText.style.marginTop = '5px';
-      paraText.style.marginLeft = '25px';
-      paraText.style.fontSize = '15px';
-      paraText.style.color = 'black';
-      myPara.appendChild(paraText);
-      var buttonPara = document.createElement('p');
-      buttonPara.innerHTML = '<p class = "btn btn-danger"  onclick = "removeCards(this)">X</p>'
-      buttonPara.style.marginRight = '20px';
-      buttonPara.style.marginTop = '13px';
-      myPara.appendChild(buttonPara);
-    }
-    document.querySelector('#mainDiv').appendChild(myPara);
-    var inputData = document.querySelector('#input').value = "";
-  }
-
-  function removeCards(e)  {
-   var mainDiv =  document.querySelector('#mainDiv');
-   var element = e.parentElement.parentElement;
-   mainDiv.removeChild(element);
-  }    
-</script>
   </body>
+  <script src="./Assets/Event_Click.js"></script>
 </html>
